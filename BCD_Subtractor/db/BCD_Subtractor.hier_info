@@ -1,0 +1,1329 @@
+|DUT
+input_vector[0] => BCD_Subtractor:add_instance.B0
+input_vector[1] => BCD_Subtractor:add_instance.B1
+input_vector[2] => BCD_Subtractor:add_instance.B2
+input_vector[3] => BCD_Subtractor:add_instance.B3
+input_vector[4] => BCD_Subtractor:add_instance.A0
+input_vector[5] => BCD_Subtractor:add_instance.A1
+input_vector[6] => BCD_Subtractor:add_instance.A2
+input_vector[7] => BCD_Subtractor:add_instance.A3
+output_vector[0] << BCD_Subtractor:add_instance.Y0
+output_vector[1] << BCD_Subtractor:add_instance.Y1
+output_vector[2] << BCD_Subtractor:add_instance.Y2
+output_vector[3] << BCD_Subtractor:add_instance.Y3
+output_vector[4] << BCD_Subtractor:add_instance.Y4
+
+
+|DUT|BCD_Subtractor:add_instance
+A3 => ripple_adder:RA2.A3
+A2 => ripple_adder:RA2.A2
+A1 => ripple_adder:RA2.A1
+A0 => ripple_adder:RA2.A0
+B3 => ripple_adder:RA1.B3
+B2 => ripple_adder:RA1.B2
+B1 => ripple_adder:RA1.B1
+B0 => ripple_adder:RA1.B0
+Y4 <= inverter:INV1.Y
+Y3 <= ripple_adder:RA4.S3
+Y2 <= ripple_adder:RA4.S2
+Y1 <= ripple_adder:RA4.S1
+Y0 <= ripple_adder:RA4.S0
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1
+A3 => fa:FA4.A
+A2 => fa:FA3.A
+A1 => fa:FA2.A
+A0 => fa:FA1.A
+B3 => xor_2:XOR4.B
+B2 => xor_2:XOR3.B
+B1 => xor_2:XOR2.B
+B0 => xor_2:XOR1.B
+M => fa:FA1.C1
+M => xor_2:XOR1.A
+M => xor_2:XOR2.A
+M => xor_2:XOR3.A
+M => xor_2:XOR4.A
+S3 <= fa:FA4.Sum
+S2 <= fa:FA3.Sum
+S1 <= fa:FA2.Sum
+S0 <= fa:FA1.Sum
+Cout <= fa:FA4.C2
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA1|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA2|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA3|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|FA:FA4|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|XOR_2:XOR2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|XOR_2:XOR3
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA1|XOR_2:XOR4
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2
+A3 => fa:FA4.A
+A2 => fa:FA3.A
+A1 => fa:FA2.A
+A0 => fa:FA1.A
+B3 => xor_2:XOR4.B
+B2 => xor_2:XOR3.B
+B1 => xor_2:XOR2.B
+B0 => xor_2:XOR1.B
+M => fa:FA1.C1
+M => xor_2:XOR1.A
+M => xor_2:XOR2.A
+M => xor_2:XOR3.A
+M => xor_2:XOR4.A
+S3 <= fa:FA4.Sum
+S2 <= fa:FA3.Sum
+S1 <= fa:FA2.Sum
+S0 <= fa:FA1.Sum
+Cout <= fa:FA4.C2
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA1|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA2|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA3|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|FA:FA4|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|XOR_2:XOR2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|XOR_2:XOR3
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA2|XOR_2:XOR4
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3
+A3 => fa:FA4.A
+A2 => fa:FA3.A
+A1 => fa:FA2.A
+A0 => fa:FA1.A
+B3 => xor_2:XOR4.B
+B2 => xor_2:XOR3.B
+B1 => xor_2:XOR2.B
+B0 => xor_2:XOR1.B
+M => fa:FA1.C1
+M => xor_2:XOR1.A
+M => xor_2:XOR2.A
+M => xor_2:XOR3.A
+M => xor_2:XOR4.A
+S3 <= fa:FA4.Sum
+S2 <= fa:FA3.Sum
+S1 <= fa:FA2.Sum
+S0 <= fa:FA1.Sum
+Cout <= fa:FA4.C2
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA1|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA2|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA3|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|FA:FA4|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|XOR_2:XOR2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|XOR_2:XOR3
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA3|XOR_2:XOR4
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4
+A3 => fa:FA4.A
+A2 => fa:FA3.A
+A1 => fa:FA2.A
+A0 => fa:FA1.A
+B3 => xor_2:XOR4.B
+B2 => xor_2:XOR3.B
+B1 => xor_2:XOR2.B
+B0 => xor_2:XOR1.B
+M => fa:FA1.C1
+M => xor_2:XOR1.A
+M => xor_2:XOR2.A
+M => xor_2:XOR3.A
+M => xor_2:XOR4.A
+S3 <= fa:FA4.Sum
+S2 <= fa:FA3.Sum
+S1 <= fa:FA2.Sum
+S0 <= fa:FA1.Sum
+Cout <= fa:FA4.C2
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA1|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA2|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA3|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4
+A => ha:HA1.A
+B => ha:HA1.B
+C1 => ha:HA2.B
+Sum <= ha:HA2.S
+C2 <= or_2:OR1.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA1
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA1|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA1|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA1|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA2
+A => xor_2:XOR1.A
+A => NAND_2:NAND1.A
+B => xor_2:XOR1.B
+B => NAND_2:NAND1.B
+S <= xor_2:XOR1.Y
+C <= NAND_2:NAND2.Y
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA2|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA2|NAND_2:NAND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|HA:HA2|NAND_2:NAND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|FA:FA4|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|XOR_2:XOR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|XOR_2:XOR2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|XOR_2:XOR3
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|Ripple_Adder:RA4|XOR_2:XOR4
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|AND_2:AND1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|AND_2:AND2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|OR_2:OR1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|OR_2:OR2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|BCD_Subtractor:add_instance|INVERTER:INV1
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
